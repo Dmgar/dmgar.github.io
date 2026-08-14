@@ -20,7 +20,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&family=Calibre:wght@500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- FontAwesome Icons CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -30,8 +30,11 @@
 </head>
 <body>
 
-  <!-- Background Space Canvas (Sarah Drasner style cosmic particles) -->
+  <!-- Background Space Canvas -->
   <canvas id="space-canvas"></canvas>
+
+  <!-- Cursor Glow -->
+  <div id="cursor-glow"></div>
 
   <!-- Left Fixed Sidebar (Brittany Chiang style) -->
   <div class="side-bar side-left" id="side-left">
@@ -50,10 +53,10 @@
     <div class="side-line"></div>
   </div>
 
-  <!-- Right Fixed Sidebar (Brittany Chiang style) -->
+  <!-- Right Fixed Sidebar -->
   <div class="side-bar side-right" id="side-right">
     <div class="side-email-text">
-      <a href="https://www.linkedin.com/in/dariem-garcia" target="_blank" rel="noopener noreferrer" id="side-contact-text-link">Contact & Collaborations</a>
+      <a href="https://www.linkedin.com/in/dariem-garcia" target="_blank" rel="noopener noreferrer" id="side-contact-text-link">Contact &amp; Collaborations</a>
     </div>
     <div class="side-line"></div>
   </div>
@@ -67,31 +70,34 @@
 
       <nav class="nav-menu" id="nav-menu">
         <ol class="nav-links">
-          <li><a href="#about" class="nav-link" id="nav-link-about" onclick="navigateTo('about'); return false;"><span class="nav-num">01.</span> Sobre Mí</a></li>
+          <li><a href="#about"    class="nav-link" id="nav-link-about"    onclick="navigateTo('about');    return false;"><span class="nav-num">01.</span> Sobre Mí</a></li>
           <li><a href="#featured" class="nav-link" id="nav-link-featured" onclick="navigateTo('featured'); return false;"><span class="nav-num">02.</span> Trabajos Recientes</a></li>
           <li><a href="#projects" class="nav-link" id="nav-link-projects" onclick="navigateTo('projects'); return false;"><span class="nav-num">03.</span> Portafolio Completo</a></li>
-          <li><a href="#contact" class="nav-link" id="nav-link-contact" onclick="navigateTo('contact'); return false;"><span class="nav-num">04.</span> Contacto</a></li>
+          <li><a href="#contact"  class="nav-link" id="nav-link-contact"  onclick="navigateTo('contact');  return false;"><span class="nav-num">04.</span> Contacto</a></li>
         </ol>
         <a href="https://github.com/Dmgar" target="_blank" rel="noopener noreferrer" class="btn btn-outline-mint" id="nav-resume-btn">
           GitHub Profile
         </a>
       </nav>
 
-      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú de navegación">
-        <i class="fa-solid fa-bars"></i>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+        <i class="fa-solid fa-bars" id="nav-toggle-icon"></i>
       </button>
     </div>
   </header>
 
+  <!-- Mobile nav overlay -->
+  <div class="nav-overlay" id="nav-overlay"></div>
+
   <main id="main-content">
 
-    <!-- PAGE VIEW 1: HOME (Portada Independiente) -->
+    <!-- PAGE VIEW 1: HOME -->
     <div class="page-view active" id="page-home">
       <section class="hero-section">
         <div class="hero-content">
-          <p class="hero-teaser" id="hero-teaser">Hi, my name is</p>
+          <p class="hero-teaser" id="hero-teaser">Hola, mi nombre es</p>
           <h1 class="hero-title" id="hero-title">Dariem Garcia.</h1>
-          <h2 class="hero-subtitle" id="hero-subtitle">Conecto la teoría económica con Ciencia de Datos y Machine Learning.</h2>
+          <h2 class="hero-subtitle" id="hero-subtitle"></h2>
           <p class="hero-description" id="hero-description">
             Soy Economista y estudiante de Ciencia de Datos en la <strong>Universidad Tecnológica de Bolívar (UTB)</strong>. 
             Me especializo en crear soluciones computacionales, análisis astronómico de exoplanetas, econometría aplicada y automatización de procesos.
@@ -105,10 +111,16 @@
             </button>
           </div>
         </div>
+
+        <!-- Scroll down indicator -->
+        <div class="scroll-indicator" id="scroll-indicator">
+          <span>scroll</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
       </section>
     </div>
 
-    <!-- PAGE VIEW 2: ABOUT (Página Sobre Mí) -->
+    <!-- PAGE VIEW 2: ABOUT -->
     <div class="page-view" id="page-about">
       <section class="section about-section">
         <div class="section-container">
@@ -120,15 +132,15 @@
                 ¡Hola! Mi nombre es <strong>Dariem Garcia</strong>. Mi fascinación por los datos comenzó al descubrir cómo los modelos cuantitativos permiten interpretar comportamientos económicos complejos y tomar decisiones basadas en evidencia.
               </p>
               <p>
-                Actualmente combino mi formación académica en <strong>Economía</strong> con la <strong>Ciencia de Datos</strong> en la Universidad Tecnológica de Bolívar (UTB), expandiendo mi campo hacia la analítica astronómica (Kepler & TESS), el procesamiento de señales de audio y la automatización de flujos de trabajo con n8n y Windmill.
+                Actualmente combino mi formación académica en <strong>Economía</strong> con la <strong>Ciencia de Datos</strong> en la Universidad Tecnológica de Bolívar (UTB), expandiendo mi campo hacia la analítica astronómica (Kepler &amp; TESS), el procesamiento de señales de audio y la automatización de flujos de trabajo con n8n y Windmill.
               </p>
               <p>Aquí tienes algunas tecnologías con las que he trabajado recientemente:</p>
               
               <ul class="skills-list">
                 <li><i class="fa-solid fa-caret-right"></i> Python (Pandas, NumPy, Scikit-Learn)</li>
-                <li><i class="fa-solid fa-caret-right"></i> Econometría & Stata / R</li>
+                <li><i class="fa-solid fa-caret-right"></i> Econometría &amp; Stata / R</li>
                 <li><i class="fa-solid fa-caret-right"></i> SQL (PostgreSQL, DuckDB)</li>
-                <li><i class="fa-solid fa-caret-right"></i> FastAPI & REST APIs</li>
+                <li><i class="fa-solid fa-caret-right"></i> FastAPI &amp; REST APIs</li>
                 <li><i class="fa-solid fa-caret-right"></i> React / Next.js / TypeScript</li>
                 <li><i class="fa-solid fa-caret-right"></i> AstroData (Astropy, Lightkurve)</li>
               </ul>
@@ -140,11 +152,11 @@
               <p class="highlight-desc">Uniendo la visión macro/microeconómica con algoritmos modernos de aprendizaje automático e infraestructura de datos.</p>
               <div class="highlight-stats">
                 <div class="mini-stat">
-                  <span class="stat-val">10+</span>
+                  <span class="stat-val" data-target="10+">10+</span>
                   <span class="stat-lbl">Proyectos Publicados</span>
                 </div>
                 <div class="mini-stat">
-                  <span class="stat-val">86.5%</span>
+                  <span class="stat-val" data-target="86.5%">86.5%</span>
                   <span class="stat-lbl">Accuracy Modelo ML</span>
                 </div>
               </div>
@@ -154,21 +166,21 @@
       </section>
     </div>
 
-    <!-- PAGE VIEW 3: FEATURED WORK (Página Trabajos Recientes) -->
+    <!-- PAGE VIEW 3: FEATURED WORK -->
     <div class="page-view" id="page-featured">
       <section class="section featured-section">
         <div class="section-container">
-          <h2 class="section-heading"><span class="heading-num">02.</span> Trabajos Recientes & Proyectos Destacados</h2>
+          <h2 class="section-heading"><span class="heading-num">02.</span> Trabajos Recientes &amp; Proyectos Destacados</h2>
 
           <div class="featured-layout">
             <!-- Main Column: Featured Spotlight Cards -->
             <div class="featured-main">
               
-              <!-- Spotlight Project 1: Veles (ds-ml) -->
+              <!-- Spotlight Project 1: Veles -->
               <article class="featured-card glass-panel" id="featured-veles" data-category="ds-ml">
                 <div class="featured-header">
                   <span class="featured-label">Proyecto Destacado · Machine Learning</span>
-                  <h3 class="featured-title">Veles: Audio DSP & Music Genre Classifier</h3>
+                  <h3 class="featured-title">Veles: Audio DSP &amp; Music Genre Classifier</h3>
                 </div>
                 <div class="featured-body">
                   <p class="featured-desc">
@@ -179,11 +191,7 @@
                     <span><i class="fa-solid fa-check"></i> Backend en FastAPI + Dashboard interactivo en React</span>
                   </div>
                   <ul class="featured-tech">
-                    <li>Python</li>
-                    <li>Librosa</li>
-                    <li>Scikit-Learn</li>
-                    <li>FastAPI</li>
-                    <li>React</li>
+                    <li>Python</li><li>Librosa</li><li>Scikit-Learn</li><li>FastAPI</li><li>React</li>
                   </ul>
                 </div>
                 <div class="featured-links">
@@ -193,7 +201,7 @@
                 </div>
               </article>
 
-              <!-- Spotlight Project 2: Exoplanet Detector (astro) -->
+              <!-- Spotlight Project 2: Exoplanet Detector -->
               <article class="featured-card glass-panel" id="featured-exoplanet" data-category="astro">
                 <div class="featured-header">
                   <span class="featured-label">Proyecto Destacado · AstroData</span>
@@ -208,11 +216,7 @@
                     <span><i class="fa-solid fa-check"></i> Integración con paquetes Astropy y Lightkurve</span>
                   </div>
                   <ul class="featured-tech">
-                    <li>Python</li>
-                    <li>Astropy</li>
-                    <li>Lightkurve</li>
-                    <li>Jupyter</li>
-                    <li>Pandas</li>
+                    <li>Python</li><li>Astropy</li><li>Lightkurve</li><li>Jupyter</li><li>Pandas</li>
                   </ul>
                 </div>
                 <div class="featured-links">
@@ -222,10 +226,10 @@
                 </div>
               </article>
 
-              <!-- Spotlight Project 3: Colombia Pobreza (econo) -->
+              <!-- Spotlight Project 3: Colombia Pobreza -->
               <article class="featured-card glass-panel" id="featured-pobreza" data-category="econo">
                 <div class="featured-header">
-                  <span class="featured-label">Proyecto Destacado · Economía & Datos</span>
+                  <span class="featured-label">Proyecto Destacado · Economía &amp; Datos</span>
                   <h3 class="featured-title">Colombia Pobreza Multidimensional (IPM)</h3>
                 </div>
                 <div class="featured-body">
@@ -237,11 +241,7 @@
                     <span><i class="fa-solid fa-check"></i> Descomposición de indicadores de salud, educación y vivienda</span>
                   </div>
                   <ul class="featured-tech">
-                    <li>Python</li>
-                    <li>Dash</li>
-                    <li>Plotly</li>
-                    <li>GeoPandas</li>
-                    <li>DANE Data</li>
+                    <li>Python</li><li>Dash</li><li>Plotly</li><li>GeoPandas</li><li>DANE Data</li>
                   </ul>
                 </div>
                 <div class="featured-links">
@@ -251,10 +251,10 @@
                 </div>
               </article>
 
-              <!-- Spotlight Project 4: Sincro-App (web-auto) -->
+              <!-- Spotlight Project 4: Sincro-App -->
               <article class="featured-card glass-panel" id="featured-sincro" data-category="web-auto">
                 <div class="featured-header">
-                  <span class="featured-label">Proyecto Destacado · Web & Automation</span>
+                  <span class="featured-label">Proyecto Destacado · Web &amp; Automation</span>
                   <h3 class="featured-title">Sincro-App: Coordinación de Emergencias</h3>
                 </div>
                 <div class="featured-body">
@@ -266,11 +266,7 @@
                     <span><i class="fa-solid fa-check"></i> Despacho lógico auditable con almacenamiento en PostgreSQL</span>
                   </div>
                   <ul class="featured-tech">
-                    <li>TypeScript</li>
-                    <li>Next.js</li>
-                    <li>PostgreSQL</li>
-                    <li>TailwindCSS</li>
-                    <li>Leaflet</li>
+                    <li>TypeScript</li><li>Next.js</li><li>PostgreSQL</li><li>TailwindCSS</li><li>Leaflet</li>
                   </ul>
                 </div>
                 <div class="featured-links">
@@ -287,11 +283,11 @@
               <div class="sidebar-box glass-panel">
                 <h4 class="sidebar-title"><i class="fa-solid fa-filter"></i> Categorías de Investigación</h4>
                 <div class="sidebar-categories">
-                  <button class="side-cat-btn active" data-filter="all" id="filter-all"><i class="fa-solid fa-layer-group"></i> Todos</button>
-                  <button class="side-cat-btn" data-filter="ds-ml" id="filter-ds-ml"><i class="fa-solid fa-brain"></i> Machine Learning</button>
-                  <button class="side-cat-btn" data-filter="econo" id="filter-econo"><i class="fa-solid fa-chart-line"></i> Economía & Datos</button>
-                  <button class="side-cat-btn" data-filter="astro" id="filter-astro"><i class="fa-solid fa-meteor"></i> AstroData</button>
-                  <button class="side-cat-btn" data-filter="web-auto" id="filter-web-auto"><i class="fa-solid fa-code"></i> Web & Automation</button>
+                  <button class="side-cat-btn active" data-filter="all"      id="filter-all">     <i class="fa-solid fa-layer-group"></i> Todos</button>
+                  <button class="side-cat-btn"        data-filter="ds-ml"    id="filter-ds-ml">   <i class="fa-solid fa-brain"></i> Machine Learning</button>
+                  <button class="side-cat-btn"        data-filter="econo"    id="filter-econo">   <i class="fa-solid fa-chart-line"></i> Economía &amp; Datos</button>
+                  <button class="side-cat-btn"        data-filter="astro"    id="filter-astro">   <i class="fa-solid fa-meteor"></i> AstroData</button>
+                  <button class="side-cat-btn"        data-filter="web-auto" id="filter-web-auto"><i class="fa-solid fa-code"></i> Web &amp; Automation</button>
                 </div>
               </div>
 
@@ -308,12 +304,11 @@
       </section>
     </div>
 
-    <!-- PAGE VIEW 4: FULL PORTFOLIO (Página Portafolio Completo) -->
+    <!-- PAGE VIEW 4: FULL PORTFOLIO -->
     <div class="page-view" id="page-projects">
       <section class="section secondary-section">
         <div class="section-container">
           <h2 class="section-heading center"><span class="heading-num">03.</span> Portafolio Completo de Proyectos</h2>
-
           <div class="projects-grid" id="other-projects-grid">
             <!-- Projects injected dynamically by app.js -->
           </div>
@@ -321,7 +316,7 @@
       </section>
     </div>
 
-    <!-- PAGE VIEW 5: CONTACT (Página de Contacto) -->
+    <!-- PAGE VIEW 5: CONTACT -->
     <div class="page-view" id="page-contact">
       <section class="section contact-section">
         <div class="section-container contact-container">
@@ -330,7 +325,7 @@
           <p class="contact-text">
             Actualmente estoy abierto a nuevas oportunidades de colaboración en proyectos de Ciencia de Datos, investigación económica cuantitativa y analítica astronómica.
           </p>
-          
+
           <div class="contact-action-box">
             <a href="https://www.linkedin.com/in/dariem-garcia" target="_blank" rel="noopener noreferrer" class="btn btn-mint-lg" id="contact-linkedin-direct-btn">
               <i class="fa-brands fa-linkedin"></i> Conectar en LinkedIn
@@ -338,6 +333,13 @@
             <a href="https://github.com/Dmgar" target="_blank" rel="noopener noreferrer" class="btn btn-outline-lg" id="contact-github-direct-btn">
               <i class="fa-brands fa-github"></i> Ver Perfil de GitHub
             </a>
+          </div>
+
+          <div class="contact-divider">o</div>
+
+          <div class="contact-availability">
+            <span class="availability-dot"></span>
+            Disponible para colaboraciones · Cartagena, Colombia
           </div>
         </div>
       </section>
@@ -347,8 +349,10 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <p>Diseñado & Construido por <strong>Dariem Garcia</strong></p>
-    <p class="footer-sub">Hospedado gratuitamente en <a href="https://pages.github.com" target="_blank" rel="noopener noreferrer">GitHub Pages</a> · 2026</p>
+    <p>Diseñado &amp; Construido por <strong>Dariem Garcia</strong></p>
+    <p class="footer-sub" style="margin-top:0.4rem;">
+      <a href="https://github.com/Dmgar" target="_blank" rel="noopener noreferrer">github.com/Dmgar</a> · 2026
+    </p>
   </footer>
 
   <!-- Main JavaScript -->
