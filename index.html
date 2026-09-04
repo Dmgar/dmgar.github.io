@@ -16,6 +16,7 @@
   <meta property="og:description" content="Bridging Economic Thinking with Data Tools · ML, AstroData & Automation">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dmgar.github.io">
+  <meta name="theme-color" content="#0a192f">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,10 +35,10 @@
 <body>
 
   <!-- Background Space Canvas -->
-  <canvas id="space-canvas"></canvas>
+  <canvas id="space-canvas" aria-hidden="true"></canvas>
 
   <!-- Cursor Glow -->
-  <div id="cursor-glow"></div>
+  <div id="cursor-glow" aria-hidden="true"></div>
 
   <!-- Left Fixed Sidebar (Brittany Chiang style) -->
   <div class="side-bar side-left" id="side-left">
@@ -100,7 +101,7 @@
         <div class="hero-content">
           <p class="hero-teaser" id="hero-teaser">Hola, mi nombre es</p>
           <h1 class="hero-title" id="hero-title">Dariem Garcia.</h1>
-          <h2 class="hero-subtitle" id="hero-subtitle"></h2>
+          <h2 class="hero-subtitle" id="hero-subtitle" aria-live="polite">Conecto la teoría económica con Ciencia de Datos y Machine Learning.</h2>
           <p class="hero-description" id="hero-description">
             Soy Economista y estudiante de Ciencia de Datos en la <strong>Universidad Tecnológica de Bolívar (UTB)</strong>. 
             Me especializo en crear soluciones computacionales, análisis astronómico de exoplanetas, econometría aplicada y automatización de procesos.
@@ -149,18 +150,31 @@
               </ul>
             </div>
 
-            <div class="about-highlight-card glass-panel">
-              <div class="highlight-badge"><i class="fa-solid fa-graduation-cap"></i> UTB Cartagena</div>
-              <h3>Formación Interdisciplinaria</h3>
-              <p class="highlight-desc">Uniendo la visión macro/microeconómica con algoritmos modernos de aprendizaje automático e infraestructura de datos.</p>
-              <div class="highlight-stats">
-                <div class="mini-stat">
-                  <span class="stat-val" data-target="10+">10+</span>
-                  <span class="stat-lbl">Proyectos Publicados</span>
+            <div class="about-media-col">
+              <div class="about-avatar-wrapper glass-panel">
+                <div class="avatar-glow-ring"></div>
+                <div class="avatar-img-frame">
+                  <img src="avatar.jpg" alt="Avatar temático de Dariem Garcia - AstroData y Ciencia de Datos" class="about-avatar-img">
                 </div>
-                <div class="mini-stat">
-                  <span class="stat-val" data-target="86.5%">86.5%</span>
-                  <span class="stat-lbl">Accuracy Modelo ML</span>
+                <div class="avatar-badge">
+                  <span class="avatar-badge-dot"></span>
+                  <span>AstroData &amp; Quantitative Econ</span>
+                </div>
+              </div>
+
+              <div class="about-highlight-card glass-panel">
+                <div class="highlight-badge"><i class="fa-solid fa-graduation-cap"></i> UTB Cartagena</div>
+                <h3>Formación Interdisciplinaria</h3>
+                <p class="highlight-desc">Uniendo la visión macro/microeconómica con algoritmos modernos de aprendizaje automático e infraestructura de datos.</p>
+                <div class="highlight-stats">
+                  <div class="mini-stat">
+                    <span class="stat-val" data-target="10+">10+</span>
+                    <span class="stat-lbl">Proyectos Publicados</span>
+                  </div>
+                  <div class="mini-stat">
+                    <span class="stat-val" data-target="86.5%">86.5%</span>
+                    <span class="stat-lbl">Accuracy Modelo ML</span>
+                  </div>
                 </div>
               </div>
             </div>

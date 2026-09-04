@@ -83,10 +83,7 @@ function navigateTo(pageId, updateHash = true) {
   }
 
   // Close mobile nav menu if open
-  const navMenu = document.getElementById("nav-menu");
-  if (navMenu && window.innerWidth <= 600) {
-    navMenu.style.display = "none";
-  }
+  closeMobileNav();
 
   // Scroll to top
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -193,14 +190,24 @@ function initSpaceCanvas() {
   const starCount = Math.floor((width * height) / 10000);
   const stars = [];
 
+  // Cosmic color spectrum: Mint, Sky Blue, Soft Violet, and Starlight White
+  const starPalettes = [
+    "rgba(100, 255, 218, ", // Mint
+    "rgba(56, 189, 248, ",  // Sky Cyan
+    "rgba(168, 85, 247, ",  // Cosmic Purple
+    "rgba(240, 246, 252, "  // White Starlight
+  ];
+
   for (let i = 0; i < starCount; i++) {
+    const colorPrefix = starPalettes[Math.floor(Math.random() * starPalettes.length)];
     stars.push({
       x: Math.random() * width,
       y: Math.random() * height,
       radius: Math.random() * 1.4 + 0.2,
       alpha: Math.random() * 0.6 + 0.15,
       speed: Math.random() * 0.04 + 0.005,
-      drift: (Math.random() - 0.5) * 0.015
+      drift: (Math.random() - 0.5) * 0.015,
+      colorPrefix: colorPrefix
     });
   }
 
@@ -236,7 +243,7 @@ function initSpaceCanvas() {
         star.radius,
         0, Math.PI * 2
       );
-      ctx.fillStyle = `rgba(100, 255, 218, ${star.alpha})`;
+      ctx.fillStyle = `${star.colorPrefix}${star.alpha})`;
       ctx.fill();
 
       star.y -= star.speed;
@@ -251,7 +258,7 @@ function initSpaceCanvas() {
       }
     });
 
-    // Draw shooting stars
+    // Draw shooting stars with cyan-to-violet gradient
     shootingStars = shootingStars.filter(s => s.alpha > 0.05);
     shootingStars.forEach(s => {
       ctx.beginPath();
@@ -266,6 +273,7 @@ function initSpaceCanvas() {
         s.y - Math.sin(s.angle) * s.len
       );
       grad.addColorStop(0, `rgba(100, 255, 218, ${s.alpha})`);
+      grad.addColorStop(0.5, `rgba(168, 85, 247, ${s.alpha * 0.7})`);
       grad.addColorStop(1, "rgba(100, 255, 218, 0)");
       ctx.strokeStyle = grad;
       ctx.lineWidth = 1.5;
@@ -402,50 +410,59 @@ function animateAboutStats() {
   });
 }
 
-// --- Mobile Nav Toggle ---
+// --- Mobile Nav Toggle System ---
+function closeMobileNav() {
+  const navMenu   = document.getElementById("nav-menu");
+  const overlay   = document.getElementById("nav-overlay");
+  const navToggle = document.getElementById("nav-toggle");
+  const toggleIcon = document.getElementById("nav-toggle-icon");
+
+  if (navMenu) navMenu.classList.remove("nav-menu--open");
+  if (overlay) overlay.classList.remove("nav-overlay--visible");
+  if (navToggle) navToggle.setAttribute("aria-expanded", "false");
+  if (toggleIcon) {
+    toggleIcon.classList.remove("fa-xmark");
+    toggleIcon.classList.add("fa-bars");
+  }
+}
+
+function openMobileNav() {
+  const navMenu   = document.getElementById("nav-menu");
+  const overlay   = document.getElementById("nav-overlay");
+  const navToggle = document.getElementById("nav-toggle");
+  const toggleIcon = document.getElementById("nav-toggle-icon");
+
+  if (navMenu) navMenu.classList.add("nav-menu--open");
+  if (overlay) overlay.classList.add("nav-overlay--visible");
+  if (navToggle) navToggle.setAttribute("aria-expanded", "true");
+  if (toggleIcon) {
+    toggleIcon.classList.remove("fa-bars");
+    toggleIcon.classList.add("fa-xmark");
+  }
+}
+
 function initMobileNav() {
   const navToggle = document.getElementById("nav-toggle");
   const navMenu   = document.getElementById("nav-menu");
   const overlay   = document.getElementById("nav-overlay");
-  const toggleIcon = document.getElementById("nav-toggle-icon");
 
   if (!navToggle || !navMenu) return;
 
-  function openMenu() {
-    navMenu.classList.add("nav-menu--open");
-    overlay && overlay.classList.add("nav-overlay--visible");
-    navToggle.setAttribute("aria-expanded", "true");
-    if (toggleIcon) {
-      toggleIcon.classList.remove("fa-bars");
-      toggleIcon.classList.add("fa-xmark");
-    }
-  }
-
-  function closeMenu() {
-    navMenu.classList.remove("nav-menu--open");
-    overlay && overlay.classList.remove("nav-overlay--visible");
-    navToggle.setAttribute("aria-expanded", "false");
-    if (toggleIcon) {
-      toggleIcon.classList.remove("fa-xmark");
-      toggleIcon.classList.add("fa-bars");
-    }
-  }
-
   navToggle.addEventListener("click", () => {
-    navMenu.classList.contains("nav-menu--open") ? closeMenu() : openMenu();
+    navMenu.classList.contains("nav-menu--open") ? closeMobileNav() : openMobileNav();
   });
 
   // Close when tapping the overlay
-  overlay && overlay.addEventListener("click", closeMenu);
+  overlay && overlay.addEventListener("click", closeMobileNav);
 
-  // Close when a nav link is clicked (navigation handles page switch)
+  // Close when a nav link is clicked
   navMenu.querySelectorAll(".nav-link").forEach(link => {
-    link.addEventListener("click", closeMenu);
+    link.addEventListener("click", closeMobileNav);
   });
 
   // Close on Escape key
   document.addEventListener("keydown", e => {
-    if (e.key === "Escape") closeMenu();
+    if (e.key === "Escape") closeMobileNav();
   });
 }
 
