@@ -335,14 +335,14 @@ function initTypewriter() {
   ];
 
   let phraseIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let isPaused = false;
+  let charIndex = phrases[0].length;
+  let isDeleting = true;
+  let isPaused = true;
 
   // Add cursor element
   const cursor = document.createElement("span");
   cursor.className = "typewriter-cursor";
-  subtitleEl.innerHTML = "";
+  subtitleEl.textContent = phrases[0];
   subtitleEl.appendChild(cursor);
 
   function type() {
@@ -381,8 +381,11 @@ function initTypewriter() {
     setTimeout(type, delay);
   }
 
-  // Start after hero subtitle animation completes
-  setTimeout(type, 900);
+  // Keep the first message readable on initial load, then begin cycling.
+  setTimeout(() => {
+    isPaused = false;
+    type();
+  }, 2600);
 }
 
 // --- Animated Counter for About Stats ---
