@@ -5,14 +5,6 @@
 // --- Dataset of Secondary & Noteworthy Projects ---
 const otherProjects = [
   {
-    id: "yahoo-finance",
-    title: "Yahoo Finance Technical Analysis",
-    category: "econo",
-    shortDesc: "Plataforma de análisis técnico de activos financieros evaluando volatilidad, RSI y osciladores MACD.",
-    tech: ["Python", "Plotly", "yfinance", "Pandas"],
-    repo: "https://github.com/Dmgar/Yahoo-Finance-Data-Visualization-Analysis"
-  },
-  {
     id: "coin-change",
     title: "Coin Change Algorithmic Solver",
     category: "web-auto",
@@ -21,33 +13,17 @@ const otherProjects = [
     repo: "https://github.com/pxtroniwnl/coin-change"
   },
   {
-    id: "sql-analytics",
-    title: "SQL & Python Sales Analytics",
-    category: "econo",
-    shortDesc: "Pipeline analítico de ventas integrando consultas relacionales complejas SQL con análisis de cohortes en Python.",
-    tech: ["SQL", "Python", "Pandas", "Jupyter"],
-    repo: "https://github.com/Dmgar/sql-python-analytics-ventas"
-  },
-  {
     id: "neos-analysis",
     title: "Near Earth Objects (NEOs) Analysis",
     category: "astro",
     shortDesc: "Análisis de trayectorias orbitales y mapeo de riesgo de Objetos Cercanos a la Tierra con datos de la NASA.",
     tech: ["Python", "Astrophysics", "NASA API", "Plotly"],
     repo: "https://github.com/Jmyukopila/NEOs-Analysis"
-  },
-  {
-    id: "experimentos-fisicos",
-    title: "Simulaciones & Experimentos Físicos",
-    category: "ds-ml",
-    shortDesc: "Modelado computacional y simulación didáctica de sistemas físicos (péndulo simple y tiros parabólicos).",
-    tech: ["Python", "R", "NumPy", "Matplotlib"],
-    repo: "https://github.com/Dmgar/Experimentos-fisicos"
   }
 ];
 
 // --- SPA Page Router System ---
-const validPages = ["home", "about", "featured", "projects", "contact"];
+const validPages = ["home", "about", "featured", "fenix", "projects", "contact"];
 let currentPage = null;
 
 function navigateTo(pageId, updateHash = true) {
@@ -330,8 +306,8 @@ function initTypewriter() {
 
   const phrases = [
     "Conecto la teoría económica con Ciencia de Datos y Machine Learning.",
-    "Econometría aplicada, análisis de exoplanetas y automatización.",
-    "Construyendo soluciones donde los datos cuentan historias."
+    "Arquitecturas modernas: Monorepos, FastAPI y Next.js.",
+    "Liderando Project Fénix: Renacimiento y modernización de software."
   ];
 
   let phraseIndex = 0;
