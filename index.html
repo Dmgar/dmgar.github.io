@@ -74,11 +74,11 @@
 
       <nav class="nav-menu" id="nav-menu">
         <ol class="nav-links">
-          <li><a href="#about"    class="nav-link" id="nav-link-about"    onclick="navigateTo('about');    return false;"><span class="nav-num">01.</span> Sobre Mí</a></li>
-          <li><a href="#featured" class="nav-link" id="nav-link-featured" onclick="navigateTo('featured'); return false;"><span class="nav-num">02.</span> Trabajos Recientes</a></li>
-          <li><a href="#fenix"    class="nav-link" id="nav-link-fenix"    onclick="navigateTo('fenix');    return false;"><span class="nav-num">03.</span> Project Fénix</a></li>
-          <li><a href="#projects" class="nav-link" id="nav-link-projects" onclick="navigateTo('projects'); return false;"><span class="nav-num">04.</span> Portafolio Completo</a></li>
-          <li><a href="#contact"  class="nav-link" id="nav-link-contact"  onclick="navigateTo('contact');  return false;"><span class="nav-num">05.</span> Contacto</a></li>
+          <li><a href="#about"    class="nav-link" id="nav-link-about"    onclick="navigateTo('about');    return false;">Sobre Mí</a></li>
+          <li><a href="#featured" class="nav-link" id="nav-link-featured" onclick="navigateTo('featured'); return false;">Trabajos Recientes</a></li>
+          <li><a href="#fenix"    class="nav-link" id="nav-link-fenix"    onclick="navigateTo('fenix');    return false;">Project Fénix</a></li>
+          <li><a href="#projects" class="nav-link" id="nav-link-projects" onclick="navigateTo('projects'); return false;">Portafolio Completo</a></li>
+          <li><a href="#contact"  class="nav-link" id="nav-link-contact"  onclick="navigateTo('contact');  return false;">Contacto</a></li>
         </ol>
         <a href="https://github.com/Dmgar" target="_blank" rel="noopener noreferrer" class="btn btn-outline-mint" id="nav-resume-btn">
           GitHub Profile
@@ -177,7 +177,7 @@
     <div class="page-view" id="page-about">
       <section class="section about-section">
         <div class="section-container">
-          <h2 class="section-heading"><span class="heading-num">01.</span> Sobre Mí</h2>
+          <h2 class="section-heading">Sobre Mí</h2>
           
           <div class="about-grid">
             <div class="about-text">
@@ -202,7 +202,7 @@
             <div class="about-highlight-card glass-panel">
               <div class="about-profile-header">
                 <div class="avatar-img-frame">
-                  <img src="avatar.jpg" alt="Avatar temático de Dariem Garcia - AstroData y Ciencia de Datos" class="about-avatar-img">
+                  <img src="avatar.png" alt="Avatar temático de Dariem Garcia - AstroData y Ciencia de Datos" class="about-avatar-img">
                 </div>
                 <div class="about-profile-meta">
                   <div class="highlight-badge"><i class="fa-solid fa-graduation-cap"></i> UTB Cartagena</div>
@@ -234,7 +234,7 @@
     <div class="page-view" id="page-featured">
       <section class="section featured-section">
         <div class="section-container">
-          <h2 class="section-heading"><span class="heading-num">02.</span> Trabajos Recientes &amp; Proyectos Destacados</h2>
+          <h2 class="section-heading">Trabajos Recientes &amp; Proyectos Destacados</h2>
 
           <div class="featured-layout">
             <!-- Main Column: Featured Spotlight Cards -->
@@ -366,9 +366,9 @@
                   </ul>
                 </div>
                 <div class="featured-links">
-                  <a href="https://github.com/toroc07/sincro-app" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository">
-                    <i class="fa-brands fa-github"></i> Repositorio
-                  </a>
+                  <span class="private-repo-badge">
+                    <i class="fa-solid fa-lock"></i> Repositorio Privado (Licenciado)
+                  </span>
                 </div>
               </article>
 
@@ -405,7 +405,7 @@
       <section class="section fenix-section">
         <div class="section-container">
           <h2 class="section-heading center fenix-heading">
-            <span class="heading-num">03.</span> 🔥 Project Fénix
+            <img src="assets/fenix-mascot.png" alt="Fénix Mascot" class="fenix-mascot-icon"> Project Fénix
           </h2>
           <p class="fenix-intro">
             Iniciativa sistémica de modernización masiva. Elevando repositorios fundacionales, scripts y prototipos académicos a <strong>arquitecturas de producción (Monorepos, Next.js 15, FastAPI, uv)</strong>.
@@ -471,7 +471,7 @@
                 <ul class="fenix-tech">
                   <li>SQL</li><li>Python</li><li>Pandas</li>
                 </ul>
-                <a href="https://github.com/Dmgar/sql-python-analytics-ventas" target="_blank" rel="noopener noreferrer" class="fenix-link">
+                <a href="https://github.com/Dmgar/corporate-bi-dashboard" target="_blank" rel="noopener noreferrer" class="fenix-link">
                   Ver Repositorio <i class="fa-brands fa-github"></i>
                 </a>
               </div>
@@ -486,7 +486,7 @@
     <div class="page-view" id="page-projects">
       <section class="section secondary-section">
         <div class="section-container">
-          <h2 class="section-heading center"><span class="heading-num">04.</span> Portafolio Completo de Proyectos</h2>
+          <h2 class="section-heading center">Portafolio Completo de Proyectos</h2>
           <div class="projects-grid" id="other-projects-grid">
             <!-- Projects injected dynamically by app.js -->
           </div>
@@ -498,7 +498,7 @@
     <div class="page-view" id="page-contact">
       <section class="section contact-section">
         <div class="section-container contact-container">
-          <p class="contact-overline"><span class="heading-num">05.</span> ¿Qué sigue?</p>
+          <p class="contact-overline">¿Qué sigue?</p>
           <h2 class="contact-title">Ponernos en Contacto</h2>
           <p class="contact-text">
             Actualmente estoy abierto a nuevas oportunidades de colaboración en proyectos de Ciencia de Datos, investigación económica cuantitativa y analítica astronómica.

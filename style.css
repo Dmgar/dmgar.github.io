@@ -59,6 +59,12 @@ html {
 body {
   font-family: var(--font-sans);
   background-color: var(--bg-dark);
+  background-image: 
+    radial-gradient(ellipse at top left, rgba(168, 85, 247, 0.18) 0%, transparent 40%),
+    radial-gradient(ellipse at bottom right, rgba(100, 255, 218, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 60% 40%, rgba(56, 189, 248, 0.1) 0%, transparent 60%),
+    radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.12) 0%, transparent 55%);
+  background-attachment: fixed;
   color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
@@ -796,6 +802,27 @@ body {
   background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.7), rgba(168, 85, 247, 0.6), transparent);
   opacity: 0.45;
   transition: opacity var(--transition-fast);
+}
+
+.fenix-mascot-icon {
+  height: 48px;
+  width: auto;
+  margin-right: 15px;
+  vertical-align: middle;
+  filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.4));
+}
+
+.private-repo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--border-navy);
 }
 
 .featured-card:hover::before {
