@@ -63,8 +63,9 @@ const REPO_META = {
   "experimentos-fisicos": {
     title: "Experimentos Físicos",
     category: "astro",
-    desc: "Colección de código, datos y documentación de experimentos de física: simulaciones, análisis de datos y material didáctico.",
-    tech: ["Jupyter", "Python", "R", "Simulación"]
+    fenix: true,
+    desc: "Monorepo de física computacional: simuladores de péndulo no lineal, proyectiles aerodinámicos y osciladores (FastAPI + RK4) con tracking óptico OpenCV y frontend interactivo a 60 FPS.",
+    tech: ["FastAPI", "React 19", "Vite", "OpenCV", "SciPy", "uv"]
   },
   "transit-route-optimizer": {
     title: "Transit Route Optimizer (TNDP)",
