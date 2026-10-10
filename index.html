@@ -34,6 +34,9 @@
 </head>
 <body>
 
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
   <!-- Background Space Canvas -->
   <canvas id="space-canvas" aria-hidden="true"></canvas>
 
@@ -120,6 +123,7 @@
           </div>
           <div class="hero-proof">
             <span><i class="fa-solid fa-location-dot"></i> Cartagena, Colombia</span>
+            <span><i class="fa-regular fa-clock"></i> <span id="local-clock">--:--</span> hora local</span>
             <span><i class="fa-solid fa-circle-check"></i> Disponible para colaborar</span>
           </div>
         </div>
@@ -132,6 +136,16 @@
               <span class="profile-card-label">PERFIL / 2026</span>
               <span class="profile-card-status"><span></span> online</span>
             </div>
+            <div class="profile-identity">
+              <div class="profile-photo-ring">
+                <img src="assets/profile.jpg" alt="Foto de Dariem Garcia" class="profile-photo" width="76" height="76">
+                <span class="profile-photo-status" title="Disponible"></span>
+              </div>
+              <div class="profile-identity-text">
+                <strong class="profile-name">Dariem Garcia</strong>
+                <span class="profile-role">Economist · Data Scientist</span>
+              </div>
+            </div>
             <div class="profile-signal">
               <div class="signal-bars">
                 <span></span><span></span><span></span><span></span><span></span>
@@ -143,8 +157,8 @@
             </div>
             <div class="profile-card-grid">
               <div class="profile-stat">
-                <strong>10<span>+</span></strong>
-                <small>proyectos</small>
+                <strong class="js-repo-count">10</strong>
+                <small>repositorios</small>
               </div>
               <div class="profile-stat">
                 <strong>86.5<span>%</span></strong>
@@ -169,6 +183,31 @@
         <div class="scroll-indicator" id="scroll-indicator">
           <span>scroll</span>
           <i class="fa-solid fa-chevron-down"></i>
+        </div>
+      </section>
+
+      <!-- Tech marquee -->
+      <div class="tech-marquee" aria-hidden="true">
+        <div class="tech-marquee-track" id="tech-marquee-track"></div>
+      </div>
+
+      <!-- Live GitHub activity -->
+      <section class="home-live" aria-labelledby="live-title">
+        <div class="section-container">
+          <div class="live-header">
+            <div class="live-heading">
+              <span class="live-dot" aria-hidden="true"></span>
+              <h2 class="live-title" id="live-title">Actividad reciente en GitHub</h2>
+            </div>
+            <button class="live-more" onclick="navigateTo('projects')" id="live-see-all">
+              Ver todos los repos <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+          <div class="live-grid" id="live-activity-grid">
+            <div class="live-card skeleton"></div>
+            <div class="live-card skeleton"></div>
+            <div class="live-card skeleton"></div>
+          </div>
         </div>
       </section>
     </div>
@@ -202,7 +241,7 @@
             <div class="about-highlight-card glass-panel">
               <div class="about-profile-header">
                 <div class="avatar-img-frame">
-                  <img src="avatar.png" alt="Avatar temático de Dariem Garcia - AstroData y Ciencia de Datos" class="about-avatar-img">
+                  <img src="assets/profile.jpg" alt="Foto de Dariem Garcia" class="about-avatar-img" width="104" height="104">
                 </div>
                 <div class="about-profile-meta">
                   <div class="highlight-badge"><i class="fa-solid fa-graduation-cap"></i> UTB Cartagena</div>
@@ -216,8 +255,8 @@
               <p class="highlight-desc">Uniendo la visión macro/microeconómica con algoritmos modernos de aprendizaje automático e infraestructura de datos.</p>
               <div class="highlight-stats">
                 <div class="mini-stat">
-                  <span class="stat-val" data-target="10+">10+</span>
-                  <span class="stat-lbl">Proyectos Publicados</span>
+                  <span class="stat-val js-repo-stat" data-target="10">10</span>
+                  <span class="stat-lbl">Repositorios Publicados</span>
                 </div>
                 <div class="mini-stat">
                   <span class="stat-val" data-target="86.5%">86.5%</span>
@@ -487,9 +526,28 @@
       <section class="section secondary-section">
         <div class="section-container">
           <h2 class="section-heading center">Portafolio Completo de Proyectos</h2>
-          <div class="projects-grid" id="other-projects-grid">
-            <!-- Projects injected dynamically by app.js -->
+          <p class="projects-sync" id="repo-sync-status">
+            <span class="live-dot" aria-hidden="true"></span> Sincronizando con GitHub…
+          </p>
+
+          <div class="projects-toolbar">
+            <div class="project-filters" id="project-filters" role="group" aria-label="Filtrar proyectos">
+              <button class="pfilter-btn active" data-pfilter="all" id="pfilter-all">Todos <span class="pfilter-count"></span></button>
+              <button class="pfilter-btn" data-pfilter="ds-ml" id="pfilter-ds-ml">Machine Learning <span class="pfilter-count"></span></button>
+              <button class="pfilter-btn" data-pfilter="econo" id="pfilter-econo">Economía &amp; Datos <span class="pfilter-count"></span></button>
+              <button class="pfilter-btn" data-pfilter="astro" id="pfilter-astro">Astro &amp; Física <span class="pfilter-count"></span></button>
+              <button class="pfilter-btn" data-pfilter="web-auto" id="pfilter-web-auto">Web &amp; Herramientas <span class="pfilter-count"></span></button>
+            </div>
+            <label class="project-search" for="project-search">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              <input type="search" id="project-search" placeholder="Buscar por nombre o tecnología…" autocomplete="off">
+            </label>
           </div>
+
+          <div class="projects-grid" id="other-projects-grid">
+            <!-- Projects injected dynamically by app.js (GitHub API + curated data) -->
+          </div>
+          <p class="projects-empty" id="projects-empty" hidden>No hay proyectos que coincidan con la búsqueda.</p>
         </div>
       </section>
     </div>
