@@ -37,8 +37,8 @@ const REPO_META = {
     title: "Colombia: Pobreza Multidimensional (IPM)",
     category: "econo",
     fenix: true,
-    desc: "Dashboard interactivo y análisis geoespacial del IPM en Colombia con microdatos DANE ECV (2018–2025).",
-    tech: ["Python", "Dash", "Plotly", "GeoPandas"]
+    desc: "Inteligencia socioeconómica y benchmarking regional (OCDE/CEPAL) comparando Colombia vs 9 pares latinos con radar de 5 pilares, cuadrantes de desigualdad y simulador de políticas.",
+    tech: ["Python", "Dash", "Plotly", "PyShp", "OECD/CEPAL"]
   },
   "stochastica": {
     title: "Stochastica: Markov Chain Solver",
