@@ -3,611 +3,634 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dariem Garcia | Economist & Data Scientist</title>
-  <meta name="description" content="Portafolio profesional de Dariem Garcia: Economista y estudiante de Ciencia de Datos en la UTB. Machine Learning, Econometría y Astro-Datos.">
-  <meta name="keywords" content="Dariem Garcia, Economia, Data Science, Machine Learning, UTB, Python, FastAPI, React, AstroData">
+  <title>Dariem Garcia · Economist &amp; Data Scientist</title>
+  <meta name="description" content="Portafolio profesional de Dariem Garcia: Economista y Científico de Datos (UTB Cartagena). Machine Learning, Inferencia Causal y Sistemas en Producción.">
+  <meta name="keywords" content="Dariem Garcia, Economia, Data Science, Machine Learning, UTB Cartagena, OpenCV, FastAPI, Python">
   <meta name="author" content="Dariem Garcia">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Dariem Garcia | Economist & Data Scientist">
-  <meta property="og:description" content="Bridging Economic Thinking with Data Tools · ML, AstroData & Automation">
+  <meta property="og:title" content="Dariem Garcia · Economist &amp; Data Scientist">
+  <meta property="og:description" content="Especializado en modelos cuantitativos, inferencia causal y sistemas de machine learning en producción.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dmgar.github.io">
-  <meta name="theme-color" content="#0a192f">
+  <meta name="theme-color" content="#07090e">
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Preload critical font stylesheet so the browser fetches it ASAP -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400&family=Plus+Jakarta+Sans:wght@700;800&display=swap" as="style">
-  <!-- Full font set (display=swap ensures text stays readable while fonts load) -->
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- FontAwesome Icons CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-
-  <!-- Scroll progress -->
-  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
-
-  <!-- Background Space Canvas -->
-  <canvas id="space-canvas" aria-hidden="true"></canvas>
-
-  <!-- Cursor Glow -->
-  <div id="cursor-glow" aria-hidden="true"></div>
-
-  <!-- Left Fixed Sidebar (Brittany Chiang style) -->
-  <div class="side-bar side-left" id="side-left">
-    <ul class="side-socials">
-      <li>
-        <a href="https://github.com/Dmgar" target="_blank" rel="noopener noreferrer" aria-label="GitHub" id="side-github-link">
-          <i class="fa-brands fa-github"></i>
-        </a>
-      </li>
-      <li>
-        <a href="https://www.linkedin.com/in/dariem-garcia" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" id="side-linkedin-link">
-          <i class="fa-brands fa-linkedin-in"></i>
-        </a>
-      </li>
-    </ul>
-    <div class="side-line"></div>
-  </div>
-
-  <!-- Right Fixed Sidebar -->
-  <div class="side-bar side-right" id="side-right">
-    <div class="side-email-text">
-      <a href="https://www.linkedin.com/in/dariem-garcia" target="_blank" rel="noopener noreferrer" id="side-contact-text-link">Contact &amp; Collaborations</a>
-    </div>
-    <div class="side-line"></div>
-  </div>
+<body class="modern-portfolio">
 
   <!-- Header / Navigation Bar -->
   <header class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#home" class="nav-logo" id="nav-logo" onclick="navigateTo('home'); return false;">
-        <span class="logo-hexagon">DG</span>
+      <a href="#inicio" class="nav-logo" aria-label="Ir al inicio">
+        <span class="logo-icon">&lt;/&gt;</span>
+        <span class="logo-text">Dariem Garcia</span>
       </a>
 
-      <nav class="nav-menu" id="nav-menu">
-        <ol class="nav-links">
-          <li><a href="#about"    class="nav-link" id="nav-link-about"    onclick="navigateTo('about');    return false;">Sobre Mí</a></li>
-          <li><a href="#featured" class="nav-link" id="nav-link-featured" onclick="navigateTo('featured'); return false;">Trabajos Recientes</a></li>
-          <li><a href="#fenix"    class="nav-link" id="nav-link-fenix"    onclick="navigateTo('fenix');    return false;">Project Fénix</a></li>
-          <li><a href="#projects" class="nav-link" id="nav-link-projects" onclick="navigateTo('projects'); return false;">Portafolio Completo</a></li>
-          <li><a href="#contact"  class="nav-link" id="nav-link-contact"  onclick="navigateTo('contact');  return false;">Contacto</a></li>
-        </ol>
-        <a href="https://github.com/Dmgar" target="_blank" rel="noopener noreferrer" class="btn btn-outline-mint" id="nav-resume-btn">
-          GitHub Profile
-        </a>
+      <nav class="nav-menu" id="nav-menu" aria-label="Menú principal">
+        <ul class="nav-links">
+          <li><a href="#inicio" class="nav-link is-active">Inicio</a></li>
+          <li><a href="#sobre-mi" class="nav-link">Sobre Mí</a></li>
+          <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+          <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+          <li><a href="#fenix" class="nav-link">Project Fénix</a></li>
+          <li><a href="#repos" class="nav-link">Archivo GitHub</a></li>
+          <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        </ul>
       </nav>
 
-      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
-        <i class="fa-solid fa-bars" id="nav-toggle-icon"></i>
-      </button>
+      <div class="nav-actions">
+        <a href="#contacto" class="btn btn-nav-cta">
+          <span>Contáctame</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
     </div>
   </header>
 
-  <!-- Mobile nav overlay -->
-  <div class="nav-overlay" id="nav-overlay"></div>
-
   <main id="main-content">
 
-    <!-- PAGE VIEW 1: HOME -->
-    <div class="page-view active" id="page-home">
-      <section class="hero-section">
+    <!-- ====================================================================
+         HERO SECTION (Matching reference image)
+         ==================================================================== -->
+    <section class="hero-section" id="inicio">
+      <div class="container hero-container">
+        
+        <!-- Hero Text Column -->
         <div class="hero-content">
-          <div class="hero-kicker">
-            <span class="kicker-line"></span>
-            <p class="hero-teaser" id="hero-teaser">Hola, mi nombre es</p>
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span>ECONOMIST &amp; DATA SCIENTIST</span>
           </div>
-          <h1 class="hero-title" id="hero-title">Dariem Garcia.</h1>
-          <h2 class="hero-subtitle" id="hero-subtitle" aria-live="polite">Conecto la teoría económica con Ciencia de Datos y Machine Learning.</h2>
-          <p class="hero-description" id="hero-description">
-            <strong>Economista y Data Scientist</strong> especializado en arquitecturas modernas, construyendo desde modelos cuantitativos hasta plataformas Full-Stack escalables. 
-            Actualmente lidero la iniciativa de modernización masiva <strong>Project Fénix</strong>, combinando econometría, AstroData y optimización de redes.
+
+          <h1 class="hero-title">
+            Hola, soy <span class="highlight-name">Dariem</span><br>
+            Construyo soluciones con datos y ML.
+          </h1>
+
+          <p class="hero-description">
+            Economista y estudiante de Ciencia de Datos en la <strong>Universidad Tecnológica de Bolívar (UTB)</strong> en Cartagena. Uno el rigor de la inferencia causal y la teoría económica con arquitecturas modernas de machine learning y visión computacional en producción.
           </p>
-          <div class="hero-actions">
-            <button class="btn btn-mint-lg" onclick="navigateTo('featured')" id="hero-cta-featured">
-              <i class="fa-solid fa-arrow-right"></i> Ver proyectos destacados
-            </button>
-            <button class="btn btn-outline-lg" onclick="navigateTo('contact')" id="hero-cta-contact">
-              <i class="fa-regular fa-paper-plane"></i> Hablemos
-            </button>
-          </div>
-          <div class="hero-proof">
-            <span><i class="fa-solid fa-location-dot"></i> Cartagena, Colombia</span>
-            <span><i class="fa-regular fa-clock"></i> <span id="local-clock">--:--</span> hora local</span>
-            <span><i class="fa-solid fa-circle-check"></i> Disponible para colaborar</span>
-          </div>
-        </div>
 
-        <div class="hero-visual" aria-label="Resumen del perfil profesional">
-          <div class="hero-visual-orbit orbit-one"></div>
-          <div class="hero-visual-orbit orbit-two"></div>
-          <div class="hero-profile-card">
-            <div class="profile-card-top">
-              <span class="profile-card-label">PERFIL / 2026</span>
-              <span class="profile-card-status"><span></span> online</span>
-            </div>
-            <div class="profile-identity">
-              <div class="profile-photo-ring">
-                <img src="assets/profile.jpg" alt="Foto de Dariem Garcia" class="profile-photo" width="76" height="76">
-                <span class="profile-photo-status" title="Disponible"></span>
-              </div>
-              <div class="profile-identity-text">
-                <strong class="profile-name">Dariem Garcia</strong>
-                <span class="profile-role">Economist · Data Scientist</span>
-              </div>
-            </div>
-            <div class="profile-signal">
-              <div class="signal-bars">
-                <span></span><span></span><span></span><span></span><span></span>
-              </div>
-              <div>
-                <span class="profile-signal-label">ENFOQUE PRINCIPAL</span>
-                <strong>Data-driven thinking</strong>
-              </div>
-            </div>
-            <div class="profile-card-grid">
-              <div class="profile-stat">
-                <strong class="js-repo-count">10</strong>
-                <small>repositorios</small>
-              </div>
-              <div class="profile-stat">
-                <strong>86.5<span>%</span></strong>
-                <small>precisión ML</small>
-              </div>
-              <div class="profile-stat">
-                <strong>04</strong>
-                <small>áreas de trabajo</small>
-              </div>
-            </div>
-            <div class="profile-tags">
-              <span>Economía</span><span>Monorepos</span><span>Fénix</span><span>Optimización</span>
-            </div>
-            <div class="profile-card-footer">
-              <span>Construyendo con datos</span>
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          <div class="hero-buttons">
+            <a href="#proyectos" class="btn btn-primary">
+              <span>Ver Proyectos</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/dariem-garcia" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <span>LinkedIn</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+          </div>
+
+          <!-- Technologies row -->
+          <div class="hero-tech-strip">
+            <span class="tech-strip-label">TECNOLOGÍAS PRINCIPALES:</span>
+            <div class="tech-strip-icons">
+              <span class="tech-pill" translate="no"><span class="tech-icon-dot py"></span>Python</span>
+              <span class="tech-pill" translate="no"><span class="tech-icon-dot cv"></span>OpenCV 5</span>
+              <span class="tech-pill" translate="no"><span class="tech-icon-dot fa"></span>FastAPI</span>
+              <span class="tech-pill" translate="no"><span class="tech-icon-dot sk"></span>Scikit-Learn</span>
+              <span class="tech-pill" translate="no"><span class="tech-icon-dot db"></span>DuckDB</span>
+              <span class="tech-pill" translate="no"><span class="tech-icon-dot aw"></span>AWS</span>
+              <span class="tech-pill" translate="no"><span class="tech-icon-dot rc"></span>React</span>
             </div>
           </div>
         </div>
 
-        <!-- Scroll down indicator -->
-        <div class="scroll-indicator" id="scroll-indicator">
-          <span>scroll</span>
-          <i class="fa-solid fa-chevron-down"></i>
-        </div>
-      </section>
+        <!-- Hero Profile Dossier Column -->
+        <div class="hero-visual">
+          <div class="hero-profile-panel">
+            <div class="portrait-glow-circle" aria-hidden="true"></div>
 
-      <!-- Tech marquee -->
-      <div class="tech-marquee" aria-hidden="true">
-        <div class="tech-marquee-track" id="tech-marquee-track"></div>
+            <div class="profile-panel-card">
+              <div class="profile-panel-header">
+                <span class="profile-panel-label">PERFIL // 2026</span>
+                <span class="profile-panel-status">
+                  <span class="code-status-light"></span>
+                  Disponible
+                </span>
+              </div>
+
+              <div class="profile-identity-row">
+                <div class="portrait-image-card">
+                  <img src="assets/profile.jpg" alt="Fotografía profesional de Dariem Garcia" class="portrait-photo" width="112" height="112" loading="eager">
+                </div>
+                <div class="profile-identity-info">
+                  <strong class="profile-identity-name">Dariem Garcia</strong>
+                  <span class="profile-identity-role">Economist · Data Scientist</span>
+                  <span class="profile-identity-loc">UTB · Cartagena, Colombia</span>
+                </div>
+              </div>
+
+              <div class="profile-metrics-row">
+                <div class="profile-metric-box">
+                  <strong class="js-repo-count">8+</strong>
+                  <span>Repos GitHub</span>
+                </div>
+                <div class="profile-metric-box">
+                  <strong>4</strong>
+                  <span>Fénix Renacidos</span>
+                </div>
+                <div class="profile-metric-box">
+                  <strong>3</strong>
+                  <span>Demos en Vivo</span>
+                </div>
+              </div>
+
+              <div class="floating-code-card">
+                <div class="code-card-header">
+                  <span class="code-tag">&lt;/&gt; Dariem.dev</span>
+                  <span class="code-lang">portfolio.ts</span>
+                </div>
+                <pre class="code-body" translate="no"><code><span class="code-keyword">const</span> dataScientist = {
+  <span class="code-prop">name</span>: <span class="code-str">"Dariem Garcia"</span>,
+  <span class="code-prop">almaMater</span>: <span class="code-str">"UTB Cartagena"</span>,
+  <span class="code-prop">focus</span>: [<span class="code-str">"Econometría"</span>, <span class="code-str">"CV"</span>, <span class="code-str">"ML"</span>],
+  <span class="code-prop">openToWork</span>: <span class="code-bool">true</span>
+};</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
+    </section>
 
-      <!-- Live GitHub activity -->
-      <section class="home-live" aria-labelledby="live-title">
-        <div class="section-container">
-          <div class="live-header">
-            <div class="live-heading">
-              <span class="live-dot" aria-hidden="true"></span>
-              <h2 class="live-title" id="live-title">Actividad reciente en GitHub</h2>
-            </div>
-            <button class="live-more" onclick="navigateTo('projects')" id="live-see-all">
-              Ver todos los repos <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </div>
-          <div class="live-grid" id="live-activity-grid">
-            <div class="live-card skeleton"></div>
-            <div class="live-card skeleton"></div>
-            <div class="live-card skeleton"></div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- PAGE VIEW 2: ABOUT -->
-    <div class="page-view" id="page-about">
-      <section class="section about-section">
-        <div class="section-container">
-          <h2 class="section-heading">Sobre Mí</h2>
+    <!-- ====================================================================
+         ABOUT ME & STATS CARDS (Matching reference image)
+         ==================================================================== -->
+    <section class="section about-section" id="sobre-mi">
+      <div class="container">
+        <div class="about-grid">
           
-          <div class="about-grid">
-            <div class="about-text">
-              <p>
-                ¡Hola! Mi nombre es <strong>Dariem Garcia</strong>. Mi fascinación por los datos comenzó al descubrir cómo los modelos cuantitativos permiten interpretar comportamientos económicos complejos y tomar decisiones basadas en evidencia.
+          <!-- About text -->
+          <div class="about-info">
+            <span class="section-badge">SOBRE MÍ</span>
+            <h2 class="section-heading">Pasión por transformar datos complejos en soluciones reales</h2>
+            <p class="about-text">
+              Como economista y estudiante de ciencia de datos en la <strong>Universidad Tecnológica de Bolívar (UTB)</strong>, me especializo en conectar dos mundos que rara vez colaboran: la precisión metodológica del razonamiento cuantitativo y la solidez de la ingeniería de software moderna.
+            </p>
+            <p class="about-text">
+              He liderado el desarrollo de sistemas de percepción con visión computacional para movilidad urbana prioritaria, modelado econométrico para benchmarking socioeconómico con la OCDE/CEPAL y la reingeniería de pipelines analíticos hacia arquitecturas reproducibles.
+            </p>
+            <div class="about-cta">
+              <a href="#contacto" class="btn btn-secondary">
+                <span>Contactar Directamente</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- 4 Stats Cards Grid (like in reference) -->
+          <div class="stats-cards-grid">
+            <div class="stat-card">
+              <div class="stat-icon-wrap icon-purple">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+              </div>
+              <div class="stat-number">Economía &amp; DS</div>
+              <div class="stat-label">UTB Cartagena</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon-wrap icon-blue">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </div>
+              <div class="stat-number js-repo-count">8+</div>
+              <div class="stat-label">Proyectos Públicos GitHub</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon-wrap icon-cyan">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+              <div class="stat-number">4 Monorepos</div>
+              <div class="stat-label">Renacidos en Project Fénix</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon-wrap icon-indigo">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Código Abierto y Reproducible</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SKILLS SECTION (Progress bars & technical domains)
+         ==================================================================== -->
+    <section class="section skills-section" id="habilidades">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="section-badge">HABILIDADES TÉCNICAS</span>
+          <h2 class="section-heading">Tecnologías y Metodologías que Domino</h2>
+          <p class="section-subheading">Stack consolidado para desarrollo analítico, modelos de ML e infraestructura.</p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Skill Bar Item 1 -->
+          <div class="skill-item">
+            <div class="skill-info">
+              <div class="skill-name-wrap">
+                <span class="skill-dot py"></span>
+                <span class="skill-name">Python &amp; Scikit-Learn</span>
+              </div>
+              <span class="skill-percent">95%</span>
+            </div>
+            <div class="skill-progress-bar">
+              <div class="skill-fill" style="--level: 95%;"></div>
+            </div>
+          </div>
+
+          <!-- Skill Bar Item 2 -->
+          <div class="skill-item">
+            <div class="skill-info">
+              <div class="skill-name-wrap">
+                <span class="skill-dot cv"></span>
+                <span class="skill-name">OpenCV 5 &amp; Computer Vision (YOLO)</span>
+              </div>
+              <span class="skill-percent">90%</span>
+            </div>
+            <div class="skill-progress-bar">
+              <div class="skill-fill" style="--level: 90%;"></div>
+            </div>
+          </div>
+
+          <!-- Skill Bar Item 3 -->
+          <div class="skill-item">
+            <div class="skill-info">
+              <div class="skill-name-wrap">
+                <span class="skill-dot ec"></span>
+                <span class="skill-name">Econometría &amp; Inferencia Causal</span>
+              </div>
+              <span class="skill-percent">92%</span>
+            </div>
+            <div class="skill-progress-bar">
+              <div class="skill-fill" style="--level: 92%;"></div>
+            </div>
+          </div>
+
+          <!-- Skill Bar Item 4 -->
+          <div class="skill-item">
+            <div class="skill-info">
+              <div class="skill-name-wrap">
+                <span class="skill-dot fa"></span>
+                <span class="skill-name">FastAPI &amp; Backend con uv</span>
+              </div>
+              <span class="skill-percent">88%</span>
+            </div>
+            <div class="skill-progress-bar">
+              <div class="skill-fill" style="--level: 88%;"></div>
+            </div>
+          </div>
+
+          <!-- Skill Bar Item 5 -->
+          <div class="skill-item">
+            <div class="skill-info">
+              <div class="skill-name-wrap">
+                <span class="skill-dot db"></span>
+                <span class="skill-name">DuckDB, SQL &amp; OLAP Analytics</span>
+              </div>
+              <span class="skill-percent">86%</span>
+            </div>
+            <div class="skill-progress-bar">
+              <div class="skill-fill" style="--level: 86%;"></div>
+            </div>
+          </div>
+
+          <!-- Skill Bar Item 6 -->
+          <div class="skill-item">
+            <div class="skill-info">
+              <div class="skill-name-wrap">
+                <span class="skill-dot aw"></span>
+                <span class="skill-name">AWS, Docker &amp; Despliegues Cloud</span>
+              </div>
+              <span class="skill-percent">82%</span>
+            </div>
+            <div class="skill-progress-bar">
+              <div class="skill-fill" style="--level: 82%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         FEATURED PROJECTS (Cards with visual previews like reference)
+         ==================================================================== -->
+    <section class="section projects-section" id="proyectos">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="section-badge">PROYECTOS DESTACADOS</span>
+          <h2 class="section-heading">Sistemas en Producción y Casos de Estudio</h2>
+          <p class="section-subheading">Proyectos con código abierto disponible y demostraciones públicas interactivas.</p>
+        </div>
+
+        <div class="featured-cards-grid">
+
+          <!-- Card 1: FlowSense -->
+          <article class="project-card">
+            <div class="project-thumb-wrap">
+              <img src="https://raw.githubusercontent.com/Dmgar/project_Flowsense/main/docs/flowsense-overview-live.jpg" alt="Previsualización de FlowSense: percepción vehicular y movilidad" class="project-thumb-img" width="600" height="340" loading="lazy">
+              <div class="project-overlay-badge">DEMO EN VIVO</div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta-row">
+                <span class="project-num">01</span>
+                <span class="project-category">VISIÓN COMPUTACIONAL &amp; SMART MOBILITY</span>
+              </div>
+              <h3 class="project-card-title">FlowSense: Percepción Urbana &amp; Despeje de Emergencias</h3>
+              <p class="project-card-desc">
+                Desarrollado para la OpenCV AI Competition 2026 (patrocinada por AWS). Percepción de flujo vehicular en tiempo real con cámaras públicas y YOLOv8 para despeje semafórico y rutas rápidas de ambulancias y bomberos.
               </p>
-              <p>
-                Actualmente combino mi formación académica en <strong>Economía</strong> con la <strong>Ciencia de Datos</strong> en la Universidad Tecnológica de Bolívar (UTB), expandiendo mi campo hacia la analítica astronómica (Kepler &amp; TESS), el procesamiento de señales de audio y la automatización de flujos de trabajo con n8n y Windmill.
+              <div class="project-tags">
+                <span>Python</span>
+                <span>OpenCV 5</span>
+                <span>FastAPI</span>
+                <span>OSMnx</span>
+                <span>AWS</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://flowsense.duckdns.org" target="_blank" rel="noopener noreferrer" class="link-view-project">
+                  <span>Abrir Demo en Vivo</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </a>
+                <a href="https://github.com/Dmgar/project_Flowsense" target="_blank" rel="noopener noreferrer" class="link-github-repo" aria-label="Ver código en GitHub">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Project Terra -->
+          <article class="project-card">
+            <div class="project-thumb-wrap">
+              <img src="assets/terra-preview.jpg" alt="Previsualización de Project Terra: Inteligencia agronómica" class="project-thumb-img" width="600" height="340" loading="lazy">
+              <div class="project-overlay-badge badge-blue">DEMO EN VIVO</div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta-row">
+                <span class="project-num">02</span>
+                <span class="project-category">AGROECONOMÍA &amp; MACHINE LEARNING</span>
+              </div>
+              <h3 class="project-card-title">Project Terra · Inteligencia agronómica</h3>
+              <p class="project-card-desc">
+                Motor de inteligencia agronómica y clustering sobre matrices edafoclimáticas (precipitación, pH, temperatura y suelo) para recomendar cultivos sostenibles y planificar la siembra con API FastAPI y frontend interactivo.
               </p>
-              <p>Aquí tienes algunas tecnologías con las que he trabajado recientemente:</p>
-              
-              <ul class="skills-list">
-                <li><i class="fa-solid fa-caret-right"></i> Python (Pandas, NumPy, Scikit-Learn)</li>
-                <li><i class="fa-solid fa-caret-right"></i> Econometría &amp; Stata / R</li>
-                <li><i class="fa-solid fa-caret-right"></i> SQL (PostgreSQL, DuckDB)</li>
-                <li><i class="fa-solid fa-caret-right"></i> FastAPI &amp; REST APIs</li>
-                <li><i class="fa-solid fa-caret-right"></i> React / Next.js / TypeScript</li>
-                <li><i class="fa-solid fa-caret-right"></i> AstroData (Astropy, Lightkurve)</li>
-              </ul>
-            </div>
-
-            <div class="about-highlight-card glass-panel">
-              <div class="about-profile-header">
-                <div class="avatar-img-frame">
-                  <img src="assets/profile.jpg" alt="Foto de Dariem Garcia" class="about-avatar-img" width="104" height="104">
-                </div>
-                <div class="about-profile-meta">
-                  <div class="highlight-badge"><i class="fa-solid fa-graduation-cap"></i> UTB Cartagena</div>
-                  <div class="avatar-badge">
-                    <span class="avatar-badge-dot"></span>
-                    <span>Astro &amp; Econ Data</span>
-                  </div>
-                </div>
+              <div class="project-tags">
+                <span>Python</span>
+                <span>Scikit-Learn</span>
+                <span>PCA</span>
+                <span>FastAPI</span>
+                <span>React</span>
               </div>
-              <h3>Formación Interdisciplinaria</h3>
-              <p class="highlight-desc">Uniendo la visión macro/microeconómica con algoritmos modernos de aprendizaje automático e infraestructura de datos.</p>
-              <div class="highlight-stats">
-                <div class="mini-stat">
-                  <span class="stat-val js-repo-stat" data-target="10">10</span>
-                  <span class="stat-lbl">Repositorios Publicados</span>
+              <div class="project-actions">
+                <a href="https://terra-three-blush.vercel.app/" target="_blank" rel="noopener noreferrer" class="link-view-project">
+                  <span>Abrir Demo en Vivo</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </a>
+                <a href="https://github.com/Dmgar/Project_Terra" target="_blank" rel="noopener noreferrer" class="link-github-repo" aria-label="Ver código en GitHub">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Nebo -->
+          <article class="project-card">
+            <div class="project-thumb-wrap">
+              <img src="assets/nebo-preview.jpg" alt="Previsualización de Nebo: el cielo infrarrojo de SPHEREx" class="project-thumb-img" width="600" height="340" loading="lazy">
+              <div class="project-overlay-badge">DEMO EN VIVO</div>
+            </div>
+            <div class="project-content">
+              <div class="project-meta-row">
+                <span class="project-num">03</span>
+                <span class="project-category">ASTRODATOS &amp; EXPLORACIÓN ESPACIAL</span>
+              </div>
+              <h3 class="project-card-title">Nebo: El Cielo Infrarrojo de SPHEREx</h3>
+              <p class="project-card-desc">
+                Plataforma interactiva para explorar el cielo y comparar imágenes infrarrojas del telescopio espacial SPHEREx época por época, combinando visualización astronómica con una interfaz inmersiva.
+              </p>
+              <div class="project-tags">
+                <span>Next.js</span>
+                <span>TypeScript</span>
+                <span>SPHEREx</span>
+                <span>AstroData</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://nebo-app.earth/" target="_blank" rel="noopener noreferrer" class="link-view-project">
+                  <span>Abrir Demo en Vivo</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </a>
+                <a href="https://github.com/toroc07/bitminds" target="_blank" rel="noopener noreferrer" class="link-github-repo" aria-label="Ver código en GitHub">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         PROJECT FÉNIX DEEP-DIVE
+         ==================================================================== -->
+    <section class="section fenix-section" id="fenix">
+      <div class="container">
+        <div class="fenix-banner-card">
+          <div class="fenix-banner-content">
+            <div class="fenix-title-row">
+              <img src="assets/fenix-mascot.png" alt="Project Fénix Mascot" class="fenix-logo-img" width="80" height="80" loading="lazy">
+              <div>
+                <span class="section-badge badge-amber">REINGENIERÍA INDUSTRIAL</span>
+                <h2 class="fenix-headline">Project Fénix: Reconstrucción Total a Producción</h2>
+              </div>
+            </div>
+            <p class="fenix-description">
+              Mi iniciativa personal de ingeniería: tomar proyectos y experimentos académicos universitarios y reconstruirlos desde cero como monorepos profesionales con empaquetado <code translate="no">uv</code>, microservicios en <code translate="no">FastAPI</code>, frontends fluidos a 60 FPS y cobertura de pruebas.
+            </p>
+
+            <div class="fenix-cards-list">
+              <!-- Item 1 -->
+              <div class="fenix-list-item">
+                <div class="fenix-item-header">
+                  <strong>Forex &amp; Market Volatility</strong>
+                  <span class="fenix-tag reborn">RENACIDO</span>
                 </div>
-                <div class="mini-stat">
-                  <span class="stat-val" data-target="86.5%">86.5%</span>
-                  <span class="stat-lbl">Accuracy Modelo ML</span>
+                <p>FastAPI (uv) + Next.js 15. Cálculo reactivo en memoria de ATR, MACD, RSI y series históricas de drawdown.</p>
+                <a href="https://github.com/Dmgar/Yahoo-Finance-Data-Visualization-Analysis" target="_blank" rel="noopener noreferrer" class="fenix-link">Ver repositorio en GitHub ↗</a>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="fenix-list-item">
+                <div class="fenix-item-header">
+                  <strong>PhysLab / Experimentos Físicos</strong>
+                  <span class="fenix-tag reborn">RENACIDO</span>
                 </div>
+                <p>Integrador Runge-Kutta 4, tracking óptico OpenCV y frontend interactivo React 19 a 60 FPS.</p>
+                <a href="https://github.com/Dmgar/Experimentos-fisicos" target="_blank" rel="noopener noreferrer" class="fenix-link">Ver repositorio en GitHub ↗</a>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="fenix-list-item">
+                <div class="fenix-item-header">
+                  <strong>Colombia: Pobreza Multidimensional (IPM)</strong>
+                  <span class="fenix-tag reborn">RENACIDO</span>
+                </div>
+                <p>Dash + Plotly + PyShp. Benchmarking regional OCDE/CEPAL con radar de 5 pilares y simulador de impacto.</p>
+                <a href="https://github.com/Dmgar/Colombia-pobreza-multidimensional" target="_blank" rel="noopener noreferrer" class="fenix-link">Ver repositorio en GitHub ↗</a>
+              </div>
+
+              <!-- Item 4 -->
+              <div class="fenix-list-item">
+                <div class="fenix-item-header">
+                  <strong>Corporate BI Studio</strong>
+                  <span class="fenix-tag reborn">RENACIDO</span>
+                </div>
+                <p>Motor analítico DuckDB OLAP con consultas en memoria ultrarrápidas, alertas y Streamlit.</p>
+                <a href="https://github.com/Dmgar/corporate-bi-dashboard" target="_blank" rel="noopener noreferrer" class="fenix-link">Ver repositorio en GitHub ↗</a>
+              </div>
+
+              <!-- Item 5 -->
+              <div class="fenix-list-item">
+                <div class="fenix-item-header">
+                  <strong>Exoplanet Outlier Detector</strong>
+                  <span class="fenix-tag in-progress">EN CURSO</span>
+                </div>
+                <p>Pipeline estadístico con Lightkurve y Astropy para detección de tránsitos en curvas de luz Kepler/TESS.</p>
+                <a href="https://github.com/Dmgar/exoplanet-outlier-detector" target="_blank" rel="noopener noreferrer" class="fenix-link">Ver repositorio en GitHub ↗</a>
               </div>
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
 
-    <!-- PAGE VIEW 3: FEATURED WORK -->
-    <div class="page-view" id="page-featured">
-      <section class="section featured-section">
-        <div class="section-container">
-          <h2 class="section-heading">Trabajos Recientes &amp; Proyectos Destacados</h2>
-
-          <div class="featured-layout">
-            <!-- Main Column: Featured Spotlight Cards -->
-            <div class="featured-main">
-              
-              <!-- Spotlight Project 0.1: FlowSense (ds-ml) -->
-              <article class="featured-card glass-panel" id="featured-flowsense" data-category="ds-ml">
-                <div class="featured-header">
-                  <span class="featured-label">Proyecto Destacado · Computer Vision & Routing</span>
-                  <h3 class="featured-title">FlowSense: Priority Routing & Perception</h3>
-                </div>
-                <div class="featured-body">
-                  <p class="featured-desc">
-                    Sistema de percepción en tiempo real con <strong>OpenCV 5</strong> y modelado de grafos urbanos para computar corredores óptimos y de baja latencia destinados a vehículos de emergencia en ciudades congestionadas.
-                  </p>
-                  <div class="featured-highlights">
-                    <span><i class="fa-solid fa-check"></i> OpenCV 5 dnn y extracción de impedancia en tiempo real</span>
-                    <span><i class="fa-solid fa-check"></i> Backend FastAPI con WebSockets desplegado en AWS</span>
-                  </div>
-                  <ul class="featured-tech">
-                    <li>Python</li>
-                    <li>OpenCV 5</li>
-                    <li>FastAPI</li>
-                    <li>AWS</li>
-                    <li>osmnx</li>
-                  </ul>
-                </div>
-                <div class="featured-links">
-                  <a href="https://github.com/Dmgar/project_Flowsense" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository">
-                    <i class="fa-brands fa-github"></i> Repositorio
-                  </a>
-                </div>
-              </article>
-
-              <!-- Spotlight Project 0.2: Project Terra (econo) -->
-              <article class="featured-card glass-panel" id="featured-terra" data-category="econo">
-                <div class="featured-header">
-                  <span class="featured-label">Proyecto Destacado · Minería de Datos</span>
-                  <h3 class="featured-title">Project Terra: Clustering de Ecorregiones</h3>
-                </div>
-                <div class="featured-body">
-                  <p class="featured-desc">
-                    Minería de datos y clustering no supervisado (K-Means, Jerárquico, PCA) sobre variables edafoclimáticas para descubrir "ecorregiones funcionales" y realizar recomendaciones inteligentes de cultivos.
-                  </p>
-                  <div class="featured-highlights">
-                    <span><i class="fa-solid fa-check"></i> Reducción de dimensionalidad y análisis de silueta</span>
-                    <span><i class="fa-solid fa-check"></i> Validación agronómica de clusters ambientales</span>
-                  </div>
-                  <ul class="featured-tech">
-                    <li>Python</li>
-                    <li>Scikit-Learn</li>
-                    <li>Pandas</li>
-                    <li>Machine Learning</li>
-                  </ul>
-                </div>
-                <div class="featured-links">
-                  <a href="https://github.com/Dmgar/Project_Terra" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository">
-                    <i class="fa-brands fa-github"></i> Repositorio
-                  </a>
-                </div>
-              </article>
-
-              <!-- Spotlight Project 1: Veles -->
-              <article class="featured-card glass-panel" id="featured-veles" data-category="ds-ml">
-                <div class="featured-header">
-                  <span class="featured-label">Proyecto Destacado · Machine Learning</span>
-                  <h3 class="featured-title">Veles: Audio DSP &amp; Music Genre Classifier</h3>
-                </div>
-                <div class="featured-body">
-                  <p class="featured-desc">
-                    Motor de clasificación de géneros musicales que combina procesamiento digital de señales (DSP) mediante extracción de características MFCC y espectrales con <code>librosa</code> y modelos de Scikit-Learn, alcanzando un <strong>86.5% de precisión</strong>.
-                  </p>
-                  <div class="featured-highlights">
-                    <span><i class="fa-solid fa-check"></i> Extracción de MFCC, Spectral Centroid y Chroma</span>
-                    <span><i class="fa-solid fa-check"></i> Backend en FastAPI + Dashboard interactivo en React</span>
-                  </div>
-                  <ul class="featured-tech">
-                    <li>Python</li><li>Librosa</li><li>Scikit-Learn</li><li>FastAPI</li><li>React</li>
-                  </ul>
-                </div>
-                <div class="featured-links">
-                  <a href="https://github.com/Jmyukopila/Veles" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository">
-                    <i class="fa-brands fa-github"></i> Repositorio
-                  </a>
-                </div>
-              </article>
-
-              <!-- Spotlight Project: Transit Route Optimizer -->
-              <article class="featured-card glass-panel" id="featured-transit" data-category="ds-ml">
-                <div class="featured-header">
-                  <span class="featured-label">Proyecto Destacado · Optimización en Grafos</span>
-                  <h3 class="featured-title">Transit Route Optimizer (TNDP)</h3>
-                </div>
-                <div class="featured-body">
-                  <p class="featured-desc">
-                    Optimizador de Rutas de Transporte Público (TNDP) mediante algoritmos genéticos multiobjetivo <strong>(NSGA-II)</strong> evaluados sobre redes viales reales construidas con OSMnx para optimizar la movilidad urbana.
-                  </p>
-                  <div class="featured-highlights">
-                    <span><i class="fa-solid fa-check"></i> Algoritmos genéticos sobre grafos viales de OpenStreetMap</span>
-                    <span><i class="fa-solid fa-check"></i> FastAPI backend con visualización geoespacial en Leaflet</span>
-                  </div>
-                  <ul class="featured-tech">
-                    <li>Python</li><li>OSMnx</li><li>NetworkX</li><li>FastAPI</li><li>Leaflet</li>
-                  </ul>
-                </div>
-                <div class="featured-links">
-                  <a href="https://github.com/Dmgar/transit-route-optimizer" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository">
-                    <i class="fa-brands fa-github"></i> Repositorio
-                  </a>
-                </div>
-              </article>
-
-              <!-- Spotlight Project 4: Sincro-App -->
-              <article class="featured-card glass-panel" id="featured-sincro" data-category="web-auto">
-                <div class="featured-header">
-                  <span class="featured-label">Proyecto Destacado · Web &amp; Automation</span>
-                  <h3 class="featured-title">Sincro-App: Coordinación de Emergencias</h3>
-                </div>
-                <div class="featured-body">
-                  <p class="featured-desc">
-                    Plataforma de despacho operacional desarrollada para coordinar y deduplicar incidentes de emergencias médicas en tiempo real en Cartagena, optimizando la asignación de ambulancias mediante algoritmos de geolocalización.
-                  </p>
-                  <div class="featured-highlights">
-                    <span><i class="fa-solid fa-check"></i> Deduplicación automática de múltiples reportes de un mismo evento</span>
-                    <span><i class="fa-solid fa-check"></i> Despacho lógico auditable con almacenamiento en PostgreSQL</span>
-                  </div>
-                  <ul class="featured-tech">
-                    <li>TypeScript</li><li>Next.js</li><li>PostgreSQL</li><li>TailwindCSS</li><li>Leaflet</li>
-                  </ul>
-                </div>
-                <div class="featured-links">
-                  <span class="private-repo-badge">
-                    <i class="fa-solid fa-lock"></i> Repositorio Privado (Licenciado)
-                  </span>
-                </div>
-              </article>
-
-            </div>
-
-            <!-- Sidebar Column: Filters & Focus Areas -->
-            <aside class="featured-sidebar">
-              <div class="sidebar-box glass-panel">
-                <h4 class="sidebar-title"><i class="fa-solid fa-filter"></i> Categorías de Investigación</h4>
-                <div class="sidebar-categories">
-                  <button class="side-cat-btn active" data-filter="all"      id="filter-all">     <i class="fa-solid fa-layer-group"></i> Todos</button>
-                  <button class="side-cat-btn"        data-filter="ds-ml"    id="filter-ds-ml">   <i class="fa-solid fa-brain"></i> Machine Learning</button>
-                  <button class="side-cat-btn"        data-filter="econo"    id="filter-econo">   <i class="fa-solid fa-chart-line"></i> Economía &amp; Datos</button>
-                  <button class="side-cat-btn"        data-filter="astro"    id="filter-astro">   <i class="fa-solid fa-meteor"></i> AstroData</button>
-                  <button class="side-cat-btn"        data-filter="web-auto" id="filter-web-auto"><i class="fa-solid fa-code"></i> Web &amp; Automation</button>
-                </div>
-              </div>
-
-              <div class="sidebar-box glass-panel">
-                <h4 class="sidebar-title"><i class="fa-solid fa-handshake"></i> Canales de Contacto</h4>
-                <p class="sidebar-email-desc">Disponible para proyectos, asesorías y colaboraciones vía LinkedIn y GitHub.</p>
-                <a href="https://www.linkedin.com/in/dariem-garcia" target="_blank" rel="noopener noreferrer" class="btn btn-copy-email btn-sm" id="sidebar-linkedin-btn">
-                  <i class="fa-brands fa-linkedin"></i> Perfil de LinkedIn
-                </a>
-              </div>
-            </aside>
+    <!-- ====================================================================
+         GITHUB LIVE ARCHIVE
+         ==================================================================== -->
+    <section class="section repo-archive-section" id="repos">
+      <div class="container">
+        <div class="archive-header">
+          <div>
+            <span class="section-badge">CÓDIGO ABIERTO</span>
+            <h2 class="section-heading">Catálogo de Repositorios en GitHub</h2>
+            <p class="section-subheading">Sincronizado directamente con la API pública de GitHub.</p>
+          </div>
+          <div class="github-sync-pill" id="repo-sync-status">
+            <span class="sync-dot"></span>
+            <span>Consultando GitHub API...</span>
           </div>
         </div>
-      </section>
-    </div>
 
-    <!-- PAGE VIEW 3.5: PROJECT FENIX -->
-    <div class="page-view" id="page-fenix">
-      <section class="section fenix-section">
-        <div class="section-container">
-          <h2 class="section-heading center fenix-heading">
-            <img src="assets/fenix-mascot.png" alt="Fénix Mascot" class="fenix-mascot-icon"> Project Fénix
-          </h2>
-          <p class="fenix-intro">
-            Iniciativa sistémica de modernización masiva. Elevando repositorios fundacionales, scripts y prototipos académicos a <strong>arquitecturas de producción (Monorepos, Next.js 15, FastAPI, uv)</strong>.
-          </p>
+        <!-- Filter bar -->
+        <div class="archive-controls">
+          <div class="filter-pills-row" role="tablist">
+            <button class="filter-tab is-active" data-filter="all">Todos (<span class="js-count-all">0</span>)</button>
+            <button class="filter-tab" data-filter="ds-ml">Machine Learning (<span class="js-count-ds-ml">0</span>)</button>
+            <button class="filter-tab" data-filter="econo">Economía &amp; Datos (<span class="js-count-econo">0</span>)</button>
+            <button class="filter-tab" data-filter="astro">Astro &amp; Física (<span class="js-count-astro">0</span>)</button>
+            <button class="filter-tab" data-filter="web-auto">Web &amp; Herramientas (<span class="js-count-web-auto">0</span>)</button>
+          </div>
 
-          <div class="fenix-grid">
-            
-            <div class="fenix-card glass-panel reborn-card">
-              <div class="fenix-card-top">
-                <div class="fenix-badge badge-reborn"><i class="fa-solid fa-fire"></i> Renacido</div>
-                <h3>Forex & Market Volatility</h3>
-                <p class="fenix-desc">Renacimiento completo del repositorio "Yahoo Finance". Ahora es un Monorepo de alto rendimiento con FastAPI (uv) y Next.js 15 (Tailwind v4, Recharts) calculando ATR, MACD y Drawdowns dinámicamente.</p>
-              </div>
-              <div class="fenix-card-bottom">
-                <ul class="fenix-tech">
-                  <li>Next.js 15</li><li>FastAPI</li><li>uv</li><li>Tailwind v4</li>
-                </ul>
-                <a href="https://github.com/Dmgar/Yahoo-Finance-Data-Visualization-Analysis" target="_blank" rel="noopener noreferrer" class="fenix-link">
-                  Ver Repositorio <i class="fa-brands fa-github"></i>
-                </a>
-              </div>
-            </div>
-
-            <div class="fenix-card glass-panel reborn-card">
-              <div class="fenix-card-top">
-                <div class="fenix-badge badge-reborn"><i class="fa-solid fa-fire"></i> Renacido</div>
-                <h3>Experimentos Físicos</h3>
-                <p class="fenix-desc">Renacimiento completo del repositorio a Monorepo de física computacional: solvers de ecuaciones diferenciales (péndulo no lineal, proyectiles aerodinámicos con resistencia cuadrática y osciladores), visión artificial con tracking de centroides y suavizado Savitzky-Golay en OpenCV, y frontend interactivo a 60 FPS con fallback Runge-Kutta 4.</p>
-              </div>
-              <div class="fenix-card-bottom">
-                <ul class="fenix-tech">
-                  <li>FastAPI</li><li>React 19</li><li>OpenCV</li><li>SciPy</li><li>uv</li>
-                </ul>
-                <a href="https://github.com/Dmgar/Experimentos-fisicos" target="_blank" rel="noopener noreferrer" class="fenix-link">
-                  Ver Repositorio <i class="fa-brands fa-github"></i>
-                </a>
-              </div>
-            </div>
-
-            <div class="fenix-card glass-panel progress-card">
-              <div class="fenix-card-top">
-                <div class="fenix-badge badge-progress"><i class="fa-solid fa-spinner fa-spin"></i> En Progreso</div>
-                <h3>Exoplanet Outlier Detector</h3>
-                <p class="fenix-desc">Refactorización de pipelines de datos astrofísicos para curvas de luz Kepler, K2 y TESS. Integrando algoritmos modulares y robustos de reducción de ruido y scoring de candidatos.</p>
-              </div>
-              <div class="fenix-card-bottom">
-                <ul class="fenix-tech">
-                  <li>AstroData</li><li>Lightkurve</li><li>NumPy</li>
-                </ul>
-                <a href="https://github.com/Dmgar/exoplanet-outlier-detector" target="_blank" rel="noopener noreferrer" class="fenix-link">
-                  Ver Repositorio <i class="fa-brands fa-github"></i>
-                </a>
-              </div>
-            </div>
-
-            <div class="fenix-card glass-panel reborn-card">
-              <div class="fenix-card-top">
-                <div class="fenix-badge badge-reborn"><i class="fa-solid fa-fire"></i> Renacido</div>
-                <h3>Colombia Pobreza (IPM)</h3>
-                <p class="fenix-desc">Motor de inteligencia socioeconómica con benchmarking latinoamericano (9 países, estándares OCDE/CEPAL), radar de 5 pilares de privación, cuadrantes de desigualdad vs pobreza, análisis de bienestar poblacional y simulador interactivo de políticas públicas con mapa vectorial ultrarrápido en GeoJSON.</p>
-              </div>
-              <div class="fenix-card-bottom">
-                <ul class="fenix-tech">
-                  <li>Dash</li><li>Plotly</li><li>PyShp</li><li>OCDE / CEPAL</li>
-                </ul>
-                <a href="https://github.com/Dmgar/Colombia-pobreza-multidimensional" target="_blank" rel="noopener noreferrer" class="fenix-link">
-                  Ver Repositorio <i class="fa-brands fa-github"></i>
-                </a>
-              </div>
-            </div>
-
-            <div class="fenix-card glass-panel progress-card">
-              <div class="fenix-card-top">
-                <div class="fenix-badge badge-progress"><i class="fa-solid fa-spinner fa-spin"></i> En Progreso</div>
-                <h3>Sales Intelligence Pipeline</h3>
-                <p class="fenix-desc">Centralizando consultas relacionales complejas y motores de análisis SQL-Python para una pipeline de ventas corporativas escalable.</p>
-              </div>
-              <div class="fenix-card-bottom">
-                <ul class="fenix-tech">
-                  <li>SQL</li><li>Python</li><li>Pandas</li>
-                </ul>
-                <a href="https://github.com/Dmgar/corporate-bi-dashboard" target="_blank" rel="noopener noreferrer" class="fenix-link">
-                  Ver Repositorio <i class="fa-brands fa-github"></i>
-                </a>
-              </div>
-            </div>
-
+          <div class="search-input-wrap">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="search" id="repo-search-input" placeholder="Buscar repositorio o tecnología..." aria-label="Buscar repositorio">
           </div>
         </div>
-      </section>
-    </div>
 
-    <!-- PAGE VIEW 4: FULL PORTFOLIO -->
-    <div class="page-view" id="page-projects">
-      <section class="section secondary-section">
-        <div class="section-container">
-          <h2 class="section-heading center">Portafolio Completo de Proyectos</h2>
-          <p class="projects-sync" id="repo-sync-status">
-            <span class="live-dot" aria-hidden="true"></span> Sincronizando con GitHub…
-          </p>
+        <!-- Grid -->
+        <div class="repos-masonry-grid" id="repos-container">
+          <div class="loading-state-card">Cargando repositorios desde GitHub...</div>
+        </div>
+      </div>
+    </section>
 
-          <div class="projects-toolbar">
-            <div class="project-filters" id="project-filters" role="group" aria-label="Filtrar proyectos">
-              <button class="pfilter-btn active" data-pfilter="all" id="pfilter-all">Todos <span class="pfilter-count"></span></button>
-              <button class="pfilter-btn" data-pfilter="ds-ml" id="pfilter-ds-ml">Machine Learning <span class="pfilter-count"></span></button>
-              <button class="pfilter-btn" data-pfilter="econo" id="pfilter-econo">Economía &amp; Datos <span class="pfilter-count"></span></button>
-              <button class="pfilter-btn" data-pfilter="astro" id="pfilter-astro">Astro &amp; Física <span class="pfilter-count"></span></button>
-              <button class="pfilter-btn" data-pfilter="web-auto" id="pfilter-web-auto">Web &amp; Herramientas <span class="pfilter-count"></span></button>
+    <!-- ====================================================================
+         CONTACT & FOOTER (Matching reference bottom section)
+         ==================================================================== -->
+    <section class="section contact-section" id="contacto">
+      <div class="container">
+        <div class="contact-box">
+          <div class="contact-left">
+            <span class="section-badge">TRABAJEMOS JUNTOS</span>
+            <h2 class="contact-title">¿Tienes un proyecto o vacante en mente?</h2>
+            <p class="contact-subtitle">
+              Siempre estoy abierto a discutir nuevos proyectos, oportunidades de colaboración o incorporarme a equipos como <strong>Data Scientist</strong> o <strong>Machine Learning Engineer</strong>.
+            </p>
+            <div class="contact-buttons-row">
+              <a href="https://www.linkedin.com/in/dariem-garcia" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <span>Conectar en LinkedIn</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
+              <a href="https://github.com/Dmgar" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <span>Ver Perfil de GitHub</span>
+              </a>
             </div>
-            <label class="project-search" for="project-search">
-              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-              <input type="search" id="project-search" placeholder="Buscar por nombre o tecnología…" autocomplete="off">
-            </label>
           </div>
 
-          <div class="projects-grid" id="other-projects-grid">
-            <!-- Projects injected dynamically by app.js (GitHub API + curated data) -->
-          </div>
-          <p class="projects-empty" id="projects-empty" hidden>No hay proyectos que coincidan con la búsqueda.</p>
-        </div>
-      </section>
-    </div>
+          <div class="contact-right">
+            <div class="quote-testimonial-card">
+              <div class="quote-icon">“</div>
+              <p class="quote-text">
+                "La ventaja competitiva de un economista formado en ciencia de datos es saber no solo qué modelo ajustar, sino entender qué incentivos y mecanismos causales están operando detrás de las variables."
+              </p>
+              <div class="quote-author">
+                <div class="author-avatar">DG</div>
+                <div>
+                  <strong>Dariem Garcia</strong>
+                  <span>Economista &amp; Data Scientist · UTB Cartagena</span>
+                </div>
+              </div>
+            </div>
 
-    <!-- PAGE VIEW 5: CONTACT -->
-    <div class="page-view" id="page-contact">
-      <section class="section contact-section">
-        <div class="section-container contact-container">
-          <p class="contact-overline">¿Qué sigue?</p>
-          <h2 class="contact-title">Ponernos en Contacto</h2>
-          <p class="contact-text">
-            Actualmente estoy abierto a nuevas oportunidades de colaboración en proyectos de Ciencia de Datos, investigación económica cuantitativa y analítica astronómica.
-          </p>
-
-          <div class="contact-action-box">
-            <a href="https://www.linkedin.com/in/dariem-garcia" target="_blank" rel="noopener noreferrer" class="btn btn-mint-lg" id="contact-linkedin-direct-btn">
-              <i class="fa-brands fa-linkedin"></i> Conectar en LinkedIn
-            </a>
-            <a href="https://github.com/Dmgar" target="_blank" rel="noopener noreferrer" class="btn btn-outline-lg" id="contact-github-direct-btn">
-              <i class="fa-brands fa-github"></i> Ver Perfil de GitHub
-            </a>
-          </div>
-
-          <div class="contact-divider">o</div>
-
-          <div class="contact-availability">
-            <span class="availability-dot"></span>
-            Disponible para colaboraciones · Cartagena, Colombia
+            <div class="social-channels-list">
+              <span class="channels-title">CONÉCTATE CONMIGO:</span>
+              <div class="channels-links">
+                <a href="https://github.com/Dmgar" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                  <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/dariem-garcia" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                  <span>LinkedIn</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
-    </div>
+
+        <footer class="footer-bottom">
+          <span>© 2026 Dariem Garcia · Cartagena de Indias, Colombia</span>
+          <span>Desarrollado con pasión, rigor analítico y código limpio</span>
+        </footer>
+      </div>
+    </section>
 
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>Diseñado &amp; Construido por <strong>Dariem Garcia</strong></p>
-    <p class="footer-sub" style="margin-top:0.4rem;">
-      <a href="https://github.com/Dmgar" target="_blank" rel="noopener noreferrer">github.com/Dmgar</a> · 2026
-    </p>
-  </footer>
+  <!-- Notification Toast -->
+  <div class="toast-message" id="toast-message" role="status" aria-live="polite"></div>
 
-  <!-- Main JavaScript -->
+  <!-- JavaScript -->
   <script src="app.js"></script>
 </body>
 </html>
